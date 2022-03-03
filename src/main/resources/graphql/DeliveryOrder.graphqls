@@ -1,0 +1,38 @@
+extend type Query {
+    """
+    Fetch all available delivery orders.
+    """
+    deliveryOrders: [DeliveryOrder]
+
+    """
+    Fetch one specific delivery order with the provided id.
+    """
+    deliveryOrder(id: Long!): DeliveryOrder
+}
+
+type DeliveryOrder {
+    """
+    Unique identifier of the delivery order.
+    """
+    id: Long!
+
+    """
+    Address where the delivery order should be delivered to.
+    """
+    address: String
+
+    """
+    Name of the customer to whom the delivery order belongs.
+    """
+    customerName: String!
+
+    """
+    Delivery order lines of the delivery order.
+    """
+    deliveryOrderLines: [DeliveryOrderLine]
+
+    """
+    Expected delivery date and time of the delivery order.
+    """
+    expectedDeliveryDate: DateTime
+}

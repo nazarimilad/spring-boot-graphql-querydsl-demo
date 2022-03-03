@@ -1,0 +1,21 @@
+type DeliveryOrderLine {
+    """
+    Unique identifier of the delivery order line.
+    """
+    id: Long!
+
+    """
+    Delivery order to which the delivery order line belongs.
+    """
+    deliveryOrder: DeliveryOrder!
+
+    """
+    Item of the delivery order line.
+    """
+    item: Item!
+
+    """
+    Quantity of item of the delivery order line. This quantity is always greater than zero.
+    """
+    quantity: Int!
+}

@@ -1,0 +1,9 @@
+# extended data types, data types that are not provided by default by (Java-)GraphQL
+scalar Date
+scalar DateTime
+scalar Long
+
+# The Root Query for the application
+type Query
+# The Root Mutation for the application
+type Mutation

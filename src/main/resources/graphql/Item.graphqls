@@ -1,0 +1,30 @@
+extend type Query {
+    """
+    Fetch all available items.
+    """
+    items: [Item]
+}
+
+extend type Mutation {
+    """
+    Create a new item.
+    """
+    createItem(name: String!, description: String): Item
+}
+
+type Item {
+    """
+    Unique identifier of the item.
+    """
+    id: Long!
+
+    """
+    Name of the item.
+    """
+    name: String!
+
+    """
+    Description of the item.
+    """
+    description: String
+}
