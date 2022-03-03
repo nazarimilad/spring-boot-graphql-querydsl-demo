@@ -40,6 +40,8 @@ compatibility properties in `build.gradle.kts`
 }
 ```
 
+
+
 ## Project structure
 
 (inside `src/main`)
@@ -58,6 +60,10 @@ compatibility properties in `build.gradle.kts`
     ├── application.yml         # Configuration for the application
     └── graphql                 # GraphQL schema's
 ```
+
+![Fetching delivery orders](https://user-images.githubusercontent.com/23218676/156672772-57248fcb-5353-4a57-8859-882e046def22.gif)
+
+![Fetching and creating items](https://user-images.githubusercontent.com/23218676/156672784-e8c21f50-42ea-4001-8bdc-7d80afe244bd.gif)
 
 ## Data flow
 
