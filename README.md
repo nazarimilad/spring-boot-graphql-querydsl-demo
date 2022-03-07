@@ -1,7 +1,7 @@
 ## Introduction 
 
 This project is a Java demo project meant to demonstrate the implementation
-and integration of different aspects of GraphQL in a Spring Boot project:
+and integration of different aspects of GraphQL in a Spring Boot project (using [Spring GraphQL](https://github.com/spring-projects/spring-graphql)):
 
 * Schema to controller wiring
 * Schema documentation
