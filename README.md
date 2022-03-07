@@ -6,9 +6,8 @@ and integration of different aspects of GraphQL in a Spring Boot project:
 * Schema to controller wiring
 * Schema documentation
 * Fetching of data, using different DTO and entity models (queries)
-* Efficient fetching of relational data by preventing innecessary
+* Efficient fetching of relational data by preventing innecessary selections and joins
 * Prevention of N+1 problem when querying data
-  Selections and joins
 * Exception handling
 * Usage of extended, more complex data types
 * Creation and persistence of new data (mutations)
@@ -67,7 +66,7 @@ compatibility properties in `build.gradle.kts`
 
 ## Data flow
 
-Let's take the use case of querying all delivery orders as an example.
+Let's take the use case of querying all delivery orders with their delivery order lines, as an example.
 
 1. User queries data using the following query:
 ```graphql
@@ -77,10 +76,6 @@ Let's take the use case of querying all delivery orders as an example.
     customerName
     address
     deliveryOrderLines {
-      item {
-        name
-        description
-      }
       quantity
     }
   }
@@ -96,7 +91,9 @@ the function `deliveryOrders` is called.
       2. The repository checks if there are indirect properties in the selected fields.
          This is currently the case: the delivery order lines. So a join is added and the expansion
          of the query (more selectied fields and possibly more joins) is delegated to the repository
-         responsible for delivery order lines: `DeliveryOrderLineRepository`
+         responsible for delivery order lines: `DeliveryOrderLineRepository`. Note that
+         since the `item` property of the delivery order lines is not queried, the `ItemRepository`
+         will not be used, nor will there be any joins with the Item table be made
       3. The completed query is executed and the data is fetched and returned
    3. The fetched delivery order line entity objects are mapped into DTO objects and returned
 3. User receives the result of the query
